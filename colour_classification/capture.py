@@ -33,7 +33,8 @@ def get_grid_crops(frame, start_x, start_y):
         for col in range(GRID_SIZE):
             x = start_x + col * BOX_SIZE
             y = start_y + row * BOX_SIZE
-            crop = frame[y:y+BOX_SIZE, x:x+BOX_SIZE]
+            margin = 8
+            crop = frame[y+margin:y+BOX_SIZE-margin, x+margin:x+BOX_SIZE-margin]
             crop = cv2.resize(crop, (CROP_SIZE, CROP_SIZE))
             crops.append(crop)
     return crops

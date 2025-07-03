@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 import joblib
 
-dataset_dir = "../dataset2"
+dataset_dir = "./dataset"
 output_model_path = "hsv_knn_model.joblib"
 label_map_path = "hsv_label_map.json"
 

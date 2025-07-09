@@ -3,7 +3,6 @@ import numpy as np
 import joblib
 import json
 import os
-import pprint
 
 # === Load KNN model and label map ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -119,9 +118,10 @@ cv2.destroyAllWindows()
 # Print final cube state
 print_2d_cube(cube_state)
 
-# Save cube_state to scrambled_cube.py in compact format
-output_path = os.path.join(BASE_DIR, "scrambled_cube.py")
+# Assuming BASE_DIR and cube_state are already defined
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+output_path = os.path.join(BASE_DIR, "scrambled_cube.json")
+
 with open(output_path, "w") as f:
-    f.write("cube_state = ")
-    pprint.pprint(cube_state, stream=f, width=120, compact=True)
+    json.dump(cube_state, f, indent=2)  # or use separators=(',', ':') for more compact
 print(f"✅ Saved cube state to {output_path}")

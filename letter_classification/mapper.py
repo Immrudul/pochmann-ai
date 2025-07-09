@@ -84,7 +84,7 @@ for face_code, instruction in face_order:
             print("❌ Frame read failed.")
             break
 
-        frame = cv2.flip(frame, 1)
+        # frame = cv2.flip(frame, 1)
         display = frame.copy()
         start_x, start_y = draw_grid(display)
 
@@ -101,6 +101,11 @@ for face_code, instruction in face_order:
             exit()
         if key == 32:
             predictions = get_grid_predictions(frame, start_x, start_y)
+
+            # Rotate WHITE face 180 degrees
+            if face_code == "U":
+                predictions = [row[::-1] for row in predictions[::-1]]
+
             cube_state[face_code] = predictions
             print(f"✅ Captured {face_code} face:")
             for row in predictions:

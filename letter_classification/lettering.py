@@ -69,7 +69,7 @@ def compare_with_rotations(predicted_grid):
             max_match = match_count
             best_match = face
 
-    return best_match if max_match >= 6 else None, max_match
+    return best_match if max_match >= 7 else None, max_match
 
 def overlay_edge_letters(frame, start_x, start_y, letters):
     """Overlay top, right, bottom, left edge letters on the grid."""
@@ -142,7 +142,7 @@ while True:
             cv2.waitKey(3500)
 
         else:
-            print("❌ 6/9 not confirmed, please try again.")
+            print("❌ 7/9 not confirmed, please try again.")
 
 cap.release()
 cv2.destroyAllWindows()

@@ -125,3 +125,26 @@ output_path = os.path.join(BASE_DIR, "scrambled_cube.json")
 with open(output_path, "w") as f:
     json.dump(cube_state, f, indent=2)  # or use separators=(',', ':') for more compact
 print(f"✅ Saved cube state to {output_path}")
+
+# Generating rotations
+def rotate_face(face, k):
+    """Rotate 3x3 face 90° clockwise k times"""
+    return np.rot90(np.array(face), k=-k).tolist()
+
+def define_all_rotated():
+    with open(output_path, "r") as f:
+        scrambled_cube = json.load(f)
+
+    rotated_faces = {}
+    for face_label, grid in scrambled_cube.items():
+        for i in range(4):  # 0 to 3 rotations
+            key = f"{face_label}{i+1}"
+            rotated_faces[key] = rotate_face(grid, i)
+
+    output_rot_path = os.path.join(BASE_DIR, "scrambled_rotations.json")
+    with open(output_rot_path, "w") as f:
+        json.dump(rotated_faces, f, indent=2)
+    print("✅ Saved all rotated faces to scrambled_rotations.json")
+
+# Call after saving cube
+define_all_rotated()

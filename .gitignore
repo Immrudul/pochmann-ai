@@ -2,5 +2,11 @@
 venv
 .dataset
 .dataset2
+.dataset3
 dataset/
 dataset2/
+dataset3/
+/colour_classification/dataset*/
+/colour_classification/hsv_knn_model.joblib
+/letter_classification/scrambled_cube.json
+/letter_classification/scrambled_rotations.json

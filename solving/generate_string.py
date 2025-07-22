@@ -1,37 +1,39 @@
 cube = {
     "F": [
-        ["B", "B", "W"],
-        ["R", "G", "R"],
-        ["G", "G", "W"]
+        ["G", "Y", "R"],
+        ["G", "G", "W"],
+        ["B", "O", "Y"]
     ],
     "R": [
-        ["O", "W", "G"],
-        ["Y", "R", "W"],
-        ["O", "W", "Y"]
+        ["W", "R", "O"],
+        ["B", "R", "B"],
+        ["R", "G", "O"]
     ],
     "L": [
-        ["W", "W", "O"],
-        ["R", "O", "G"],
-        ["G", "G", "O"]
+        ["Y", "G", "O"],
+        ["Y", "O", "O"],
+        ["Y", "O", "W"]
     ],
     "B": [
-        ["Y", "O", "B"],
-        ["G", "B", "B"],
-        ["R", "B", "R"]
+        ["B", "R", "O"],
+        ["R", "B", "B"],
+        ["B", "O", "R"]
     ],
     "U": [
-        ["R", "Y", "R"],
-        ["R", "W", "B"],
-        ["Y", "Y", "G"]
+        ["G", "W", "Y"],
+        ["W", "W", "Y"],
+        ["W", "G", "G"]
     ],
     "D": [
-        ["Y", "O", "B"],
-        ["Y", "Y", "O"],
-        ["W", "O", "B"]
+        ["R", "W", "B"],
+        ["B", "Y", "R"],
+        ["G", "Y", "W"]
     ]
 }
 
-solved = {}
+solved = ["B", "M"]
+order = []
+letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"]
 
 edge_letters = {
     "WB": "A",
@@ -108,14 +110,115 @@ def find_already_solved(cube):
         solved.append("R")
         solved.append("H")
 
+find_already_solved(cube)
+# print("already solved: ", solved)
+
+correspondence = {
+    "A": "Q", "Q": "A",
+    "B": "M", "M": "B",
+    "C": "I", "I": "C",
+    "D": "E", "E": "D",
+    "U": "K", "K": "U",
+    "V": "O", "O": "V", 
+    "W": "S", "S": "W",
+    "X": "G", "G": "X",
+    "L": "F", "F": "L",
+    "J": "P", "P": "J",
+    "T": "N", "N": "T",
+    "R": "H", "H": "R"
+}
 
 
+locations = {
+    "A": cube["U"][0][1],
+    "B": cube["U"][1][2],
+    "C": cube["U"][2][1],
+    "D": cube["U"][1][0],
 
-def generate_string(cube):
-    if (cube["U"][1][2] == "R" and cube["R"][0][1] == "W") or (cube["U"][1][2] == "W" and cube["R"][0][1] == "R"):
-        print('buffer piece found')
-    else:
-        print('no buffer piece found')
+    "E": cube["L"][0][1],
+    "F": cube["L"][1][2],
+    "G": cube["L"][2][1],
+    "H": cube["L"][1][0],
+
+    "I": cube["F"][0][1],
+    "J": cube["F"][1][2],
+    "K": cube["F"][2][1],
+    "L": cube["F"][1][0],
+
+    "M": cube["R"][0][1],
+    "N": cube["R"][1][2],
+    "O": cube["R"][2][1],
+    "P": cube["R"][1][0],
+
+    "Q": cube["B"][0][1],
+    "R": cube["B"][1][2],
+    "S": cube["B"][2][1],
+    "T": cube["B"][1][0],
+
+    "U": cube["D"][0][1],
+    "V": cube["D"][1][2],
+    "W": cube["D"][2][1],
+    "X": cube["D"][1][0]
+}
 
 
-generate_string(cube)
+# Initialize with buffer piece
+c1 = locations["B"]
+c2 = locations["M"]
+piece = c1 + c2
+letter = edge_letters[piece]
+marked = None
+
+count = 0
+
+flag = True
+tempflag = False
+
+while flag:
+
+    if len(set(solved)) == 24:
+        flag = False
+        break
+
+    if letter == marked:
+        order.append(letter)
+        solved.append(letter)
+        solved.append(correspondence[letter])
+        marked = None
+        for i in letters:
+            # print("checking: ", i)
+            if (i not in solved) and (i != "M") and (i != "B"):
+                letter = i
+                print("chose: ", letter)
+                tempflag=True
+                break
+
+    if (letter == "B" or letter == "M") or (letter in order):
+        print('buffer found')
+        for i in letters:
+            # print("checking: ", i)
+            if (i not in solved) and (i != "M") and (i != "B"):
+                letter = i
+                print("chose: ", letter)
+                tempflag=True
+                break
+
+    order.append(letter)
+    solved.append(letter)
+    solved.append(correspondence[letter])
+    if tempflag:
+        marked = correspondence[letter]
+        solved.remove(correspondence[letter])
+        tempflag=False
+    c1 = locations[letter]
+    c2 = locations[correspondence[letter]]
+    piece = c1 + c2
+    letter = edge_letters[piece]
+    # print(letter)
+    # count += 1
+    # if count == 10:
+    #     flag = False
+
+order.pop()
+print(order)
+# print(solved)

@@ -173,6 +173,8 @@ count = 0
 flag = True
 tempflag = False
 
+buffer_found_edge = False
+
 while flag:
 
     if len(set(solved)) == 24:
@@ -194,6 +196,7 @@ while flag:
 
     if (letter == "B" or letter == "M") or (letter in order):
         # print('buffer found')
+        buffer_found_edge = True
         for i in letters:
             # print("checking: ", i)
             if (i not in solved) and (i != "M") and (i != "B"):
@@ -219,8 +222,9 @@ while flag:
     #     flag = False
 
 order.pop()
+if not buffer_found_edge:
+    order.append(letter)
 # print(order)
-# print(solved)
 even_or_odd = len(order) % 2
 print("even or odd: ", even_or_odd)
 

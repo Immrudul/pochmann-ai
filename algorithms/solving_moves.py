@@ -118,3 +118,25 @@ corner_moves_reversed = {
 print("Edge order: ", edge_order)
 print("Corner order: ", corner_order)
 
+print("-------------------------- Edge Moves --------------------------------")
+
+def calculate_edge_moves(edge_order):
+    for i in range(0, len(edge_order)):
+        letter = edge_order[i]
+        edge_move_str = " ".join(edge_moves[letter])
+        edge_move_reversed_str = " ".join(edge_moves_reversed[letter])
+        print(edge_move_str, " TPerm ", edge_move_reversed_str)
+
+calculate_edge_moves(edge_order)
+
+
+print("-------------------------- Corner Moves --------------------------------")
+
+def calculate_corner_moves(corner_order):
+    for i in range(0, len(corner_order)):
+        letter = corner_order[i]
+        corner_move_str = " ".join(corner_moves[letter])
+        corner_move_reversed_str = " ".join(corner_moves_reversed[letter])
+        print(corner_move_str, " YPermNoF ", corner_move_reversed_str)
+
+calculate_corner_moves(corner_order)

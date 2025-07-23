@@ -149,7 +149,6 @@ count = 0
 flag = True
 tempflag = False
 
-buffer_found_edge = False
 
 while flag:
 
@@ -172,7 +171,6 @@ while flag:
 
     if (letter == "B" or letter == "M") or (letter in order):
         # print('buffer found')
-        buffer_found_edge = True
         for i in letters:
             # print("checking: ", i)
             if (i not in solved) and (i != "M") and (i != "B"):
@@ -198,8 +196,7 @@ while flag:
     #     flag = False
 
 order.pop()
-if not buffer_found_edge:
-    order.append(letter)
+
 
 edge_order = order
 print("Edge order: ", edge_order)
@@ -214,19 +211,19 @@ even_or_odd = len(order) % 2
 solved = ["A", "E", "R"]
 order = []
 
-if even_or_odd == 1:
+# if even_or_odd == 1:
     
-    temp = cube["U"][0][2]
-    cube["U"][0][2] = cube["U"][2][2]
-    cube["U"][2][2] = temp
+#     temp = cube["U"][0][2]
+#     cube["U"][0][2] = cube["U"][2][2]
+#     cube["U"][2][2] = temp
 
-    temp = cube["F"][0][2]
-    cube["F"][0][2] = cube["R"][0][2]
-    cube["R"][0][2] = temp
+#     temp = cube["F"][0][2]
+#     cube["F"][0][2] = cube["R"][0][2]
+#     cube["R"][0][2] = temp
 
-    temp = cube["R"][0][0]
-    cube["R"][0][0] = cube["B"][0][0]
-    cube["B"][0][0] = temp
+#     temp = cube["R"][0][0]
+#     cube["R"][0][0] = cube["B"][0][0]
+#     cube["B"][0][0] = temp
     
     
 corner_letters = {
@@ -350,7 +347,6 @@ c3 = locations["A"]
 piece = c1 + c2 + c3
 letter = corner_letters[piece]
 marked = None
-buffer_found = False
 
 # print(piece)
 # print(letter)
@@ -378,8 +374,7 @@ while flag:
                 break
 
     if (letter == "A") or (letter == "E") or (letter == "R") or (letter in order):
-        print("buffer found")
-        buffer_found = True
+        # print("buffer found")
         for i in letters:
             if (i not in solved) and (i != "A") and (i != "E") and (i != "R"):
                 letter = i
@@ -417,8 +412,9 @@ while flag:
     #     flag = False
 
 
-if not buffer_found:
-    order.append(letter)
+
+
+order.pop()
 
 corner_order = order
 print("Corner order: ", corner_order)

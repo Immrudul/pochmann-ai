@@ -201,10 +201,11 @@ order.pop()
 if not buffer_found_edge:
     order.append(letter)
 
-print("Edge order: ", order)
+edge_order = order
+print("Edge order: ", edge_order)
 
 
-# ---------------------------------------------------------- Corner Pieces ----------------------------------------------------------
+# ---------------------------------------------------------- Corner Pieces Below ----------------------------------------------------------
 
 
 even_or_odd = len(order) % 2
@@ -419,7 +420,19 @@ while flag:
 if not buffer_found:
     order.append(letter)
 
-print("Corner order: ", order)
+corner_order = order
+print("Corner order: ", corner_order)
 
 
 # ANS = U. N, M, S, P, O, E
+
+output_data = {
+    "edge_order": edge_order,
+    "corner_order": corner_order
+}
+
+OUTPUT_PATH = os.path.join(BASE_DIR, "cube_solution_order.json")
+with open(OUTPUT_PATH, "w") as f:
+    json.dump(output_data, f, indent=4)
+
+print(f"\nExported to {OUTPUT_PATH}")

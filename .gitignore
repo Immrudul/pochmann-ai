@@ -10,3 +10,4 @@ dataset3/
 /colour_classification/hsv_knn_model.joblib
 /letter_classification/scrambled_cube.json
 /letter_classification/scrambled_rotations.json
+/solving/cube_solution_order.json

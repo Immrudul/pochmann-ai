@@ -1,3 +1,20 @@
+import json
+import os
+
+# Get base directory of the current file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Path to the JSON file located one directory up, inside "solving"
+SOLUTION_JSON_PATH = os.path.join(BASE_DIR, "..", "solving", "cube_solution_order.json")
+
+# Load the JSON file
+with open(SOLUTION_JSON_PATH, "r") as f:
+    solution_data = json.load(f)
+
+# Extract the orders as lists
+edge_order = solution_data.get("edge_order", [])
+corner_order = solution_data.get("corner_order", [])
+
 edge_moves = {
     "A": ["l2", "D'", "L2"],
     "C": ["l2", "D", "L2"],
@@ -96,3 +113,8 @@ corner_moves_reversed = {
     "W": ["D"],
     "X": ["D2"],
 }
+
+
+print("Edge order: ", edge_order)
+print("Corner order: ", corner_order)
+

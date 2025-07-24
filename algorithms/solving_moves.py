@@ -130,6 +130,15 @@ def calculate_edge_moves(edge_order):
 calculate_edge_moves(edge_order)
 
 
+
+print("-------------------------- Parity --------------------------------")
+
+if (len(edge_order) % 2 == 1) and (len(corner_order) % 2 == 1):
+    print("Parity: R U R' F' R U2 R' U2 R' F R U R U2 R' U'")
+else:
+    print("No Parity")
+
+
 print("-------------------------- Corner Moves --------------------------------")
 
 def calculate_corner_moves(corner_order):

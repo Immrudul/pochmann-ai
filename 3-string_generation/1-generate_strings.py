@@ -3,7 +3,7 @@ import os
 
 # Load scrambled_cube.json from one folder up in 'letter_classification'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-JSON_PATH = os.path.join(BASE_DIR, "..", "letter_classification", "scrambled_cube.json")
+JSON_PATH = os.path.join(BASE_DIR, "..", "2-letter_classification", "scrambled_cube.json")
 
 with open(JSON_PATH, "r") as f:
     cube = json.load(f)

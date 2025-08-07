@@ -5,7 +5,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Path to the JSON file located one directory up, inside "solving"
-SOLUTION_JSON_PATH = os.path.join(BASE_DIR, "..", "solving", "cube_solution_order.json")
+SOLUTION_JSON_PATH = os.path.join(BASE_DIR, "..", "3-string_generation", "cube_solution_order.json")
 
 # Load the JSON file
 with open(SOLUTION_JSON_PATH, "r") as f:

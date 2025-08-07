@@ -5,7 +5,7 @@ import json
 import os
 
 # Load KNN model and label map
-base_dir = os.path.join(os.path.dirname(__file__), "..", "colour_classification")
+base_dir = os.path.join(os.path.dirname(__file__), "..", "1-colour_classification")
 model_path = os.path.join(base_dir, "hsv_knn_model.joblib")
 label_map_path = os.path.join(base_dir, "hsv_label_map.json")
 

@@ -6,8 +6,8 @@ import os
 
 # === Load KNN model and label map ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "..", "colour_classification", "hsv_knn_model.joblib")
-LABEL_MAP_PATH = os.path.join(BASE_DIR, "..", "colour_classification", "hsv_label_map.json")
+MODEL_PATH = os.path.join(BASE_DIR, "..", "1-colour_classification", "hsv_knn_model.joblib")
+LABEL_MAP_PATH = os.path.join(BASE_DIR, "..", "1-colour_classification", "hsv_label_map.json")
 
 model = joblib.load(MODEL_PATH)
 with open(LABEL_MAP_PATH, "r") as f:

@@ -211,21 +211,6 @@ even_or_odd = len(order) % 2
 solved = ["A", "E", "R"]
 order = []
 
-# if even_or_odd == 1:
-    
-#     temp = cube["U"][0][2]
-#     cube["U"][0][2] = cube["U"][2][2]
-#     cube["U"][2][2] = temp
-
-#     temp = cube["F"][0][2]
-#     cube["F"][0][2] = cube["R"][0][2]
-#     cube["R"][0][2] = temp
-
-#     temp = cube["R"][0][0]
-#     cube["R"][0][0] = cube["B"][0][0]
-#     cube["B"][0][0] = temp
-    
-    
 corner_letters = {
     "WOB": "A",
     "WBR": "B",

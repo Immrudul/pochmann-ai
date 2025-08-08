@@ -60,10 +60,10 @@ Each folder is numerically prefixed to guide the order of folder navigation. In 
 
 Feel free to contact me about anything!
 
-suresh.mrudul@gmail.com
+suresh.mrudul@gmail.com<br>
 mrudul.suresh@uwaterloo.ca
 
 Would love to hear any feedback about the project as well!
 
-##Happy Solving!
+Happy solving!
 

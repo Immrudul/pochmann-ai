@@ -42,8 +42,10 @@ Solving the Rubik's Cube Blindfolded (BLD) can get difficult and I experienced t
 
    ```bash
    python -m venv venv
+   
    # On Windows:
    venv\Scripts\activate
+   
    # On macOS/Linux:
    source venv/bin/activate
 

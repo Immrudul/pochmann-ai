@@ -36,7 +36,7 @@ Solving the Rubik's Cube Blindfolded (BLD) can get difficult and I experienced t
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/repository-name.git
+   git clone https://github.com/Immrudul/pochmann-ai.git
 
 2. Create and activate a venv
 

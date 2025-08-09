@@ -2,9 +2,9 @@
 
 An application I made to help with learning how to solve the Rubik's Cube Blindfolded using the Old Pochmann Method!
 
-## Youtube:
+## YouTube:
 
-Check it out here on youtube: https://www.youtube.com/watch?v=RAdtPTHROvc
+Check it out here on YouTube: https://www.youtube.com/watch?v=RAdtPTHROvc
 
 ## Table of Contents
 

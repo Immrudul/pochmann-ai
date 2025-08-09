@@ -4,7 +4,7 @@ An application I made to help with learning how to solve the Rubik's Cube Blindf
 
 ## Youtube:
 
-Check it out here on youtube: insertlinkhere
+Check it out here on youtube: https://www.youtube.com/watch?v=RAdtPTHROvc
 
 ## Table of Contents
 
